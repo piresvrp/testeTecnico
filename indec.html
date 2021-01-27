@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="content">
+    <input type="number" id="numero">
+    <button id="enviar" onclick="calcular()">Calcular</button>
+    <button id="limpar" onclick="limpar()">Limpar</button>
+    <p style="font-weight: bold;" id="resultado"></p>
+  </div>
+</body>
+
+<script>
+
+  const calcular = () => {
+    try {
+      let numero = document.getElementById("numero").value
+      let somatorio = 0;
+
+      if (numero >= 0 && numero != '') {
+        for (let index = numero - 1; index >= 1; index--) {
+          if (index % 3 == 0 || index % 5 == 0) {
+            somatorio += index;
+          }
+        }
+        document.getElementById("resultado").innerHTML = `O somáorio de ${numero} é  = ${somatorio}`
+      } else {
+        document.getElementById("resultado").innerHTML = "Número ínvalido"
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const limpar = () => {
+    document.getElementById("numero").value = ''
+    document.getElementById("resultado").innerHTML = '';
+  }
+
+</script>
+
+</html>
